@@ -6,8 +6,13 @@ import { Loader } from '../components/Loader';
 
 function Recipe () {
     const [recipe, setRecipe] = useState([]);
+    const [showRecipe, setShowRecipe] = useState(false);
     const {id} = useParams();
     const {goBack} = useHistory();
+
+    const handleRecipeShow = () => {
+        setShowRecipe(!showRecipe);
+    }
     
 
     useEffect(()=>{
@@ -23,28 +28,34 @@ function Recipe () {
                     <h6><b>Category:</b>  {recipe.strCategory}</h6>
                     {recipe.strArea ? <h6><b>Area:</b> {recipe.strArea}</h6> : null}
                     <p className='descriptions'>{recipe.strInstructions}</p>
-                    <table className='centered'>
-                        <thead>
-                            <tr>
-                                <th>Ingredient</th>
-                                <th>Measure</th>
-                            </tr>
-                        </thead>
-                        <tbody> 
-                            {
-                                Object.keys(recipe).map(key => {
-                                    if(key.includes('Ingredient') && recipe[key]){
-                                        return(
-                                            <tr>
-                                                <td>{recipe[key]}</td>
-                                                <td>{recipe[`strMeasure${key.slice(13)}`]}</td>
-                                            </tr>
-                                        )
-                                    }
-                                })
-                            }
-                        </tbody>
-                    </table>
+                    <button onClick={handleRecipeShow} className='btn'>Show Recipe</button>
+                    {showRecipe ? (
+                        <table className='centered'>
+                            <thead>
+                                <tr>
+                                    <th>Ingredient</th>
+                                    <th>Measure</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                {
+                                    Object.keys(recipe).map(key => {
+                                        if(key.includes('Ingredient') && recipe[key]){
+                                            return(
+                                                <tr>
+                                                    <td>{recipe[key]}</td>
+                                                    <td>{recipe[`strMeasure${key.slice(13)}`]}</td>
+                                                </tr>
+                                            )
+                                        }
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    ) : (
+                        null
+                    )}
+                    
                     {recipe.strYoutube ? (
                         <div className='row'>
                             <h5>Video Recipe</h5>
