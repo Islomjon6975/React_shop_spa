@@ -21,3 +21,21 @@ nav {
 .card-content{
     flex-grow: 1;
 }
+
+.recipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: red;
+}
+
+img {
+    max-width: 100%;
+    margin-top: 1rem;
+
+}
+
+.descriptions{
+    width: 100%;
+}

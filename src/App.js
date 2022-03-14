@@ -6,6 +6,8 @@ import Contact from './pages/Contact'
 import NotFound from "./pages/NotFount";
 import {Route, Switch} from 'react-router-dom'
 import Category from "./components/Category";
+import Recipe from "./pages/Recipe";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route path="/category/:name" component={Category} />
+          <Route path={'/meal/:id'} component={Recipe} />
           <Route path={'*'} component={NotFound} />
         </Switch>
       </main>

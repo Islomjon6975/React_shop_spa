@@ -11,7 +11,9 @@ export default function Category() {
 
     useEffect(()=>{
         getFilterCategory(name).then(data => setMeals(data.meals))
-    }, [name])
+    }, [name]);
+
+    
     
     return(
         <>
