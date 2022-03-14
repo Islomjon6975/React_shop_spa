@@ -5,7 +5,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from "./pages/NotFount";
 import {Route, Switch} from 'react-router-dom'
-import Movie from "./components/Movie";
+import Category from "./components/Category";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
-          <Route path="/movies/:id" component={Movie} />
+          <Route path="/category/:name" component={Category} />
           <Route path={'*'} component={NotFound} />
         </Switch>
       </main>

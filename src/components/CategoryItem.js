@@ -12,7 +12,7 @@ function CategoryItem (props) {
                 <p>{strCategoryDescription.slice(0, 70)}...</p>
             </div>
             <div className="card-action">
-                <Link to={`/category/${idCategory}`} className='btn'>
+                <Link to={`/category/${strCategory}`} className='btn'>
                     Watch Category
                 </Link>
             </div>
